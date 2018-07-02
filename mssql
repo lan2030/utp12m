@@ -1,0 +1,10 @@
+ /* SQL запрос поиск неуникальных записей */
+ SELECT top 10 
+       t1._Period
+      ,t1._RecorderTRef
+      ,t1._RecorderRRef
+      ,t1._LineNo
+      ,t1._Fld11258RRef      
+  FROM utptrd2015G1.dbo._AccumRg11256 as t1
+     group by t1._Period, t1._RecorderTRef, t1._LineNo, t1._Fld11258RRef, t1._RecorderRRef
+  having count(*) > 1
